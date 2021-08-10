@@ -1,5 +1,4 @@
 #include <iostream>
-#include <crtdbg.h>
 
 //FUNCTION THAT ENTER A POSITIVE INTEGER FROM KEYBOARD
 int input(int& n) {
@@ -21,42 +20,8 @@ void factorialByLong(int n) {
 	std::cout << "Function 1: Factorial of " << n << " equals: " << t << std::endl;
 }
 
-//2 FUNCTION THAT CALCULATE FACTORIAL OF A NUMBER USING ARRAY
-//FUNCTION THAT UPDATE ARRAY SIZE AND MUTIPLY NUMBER
-int multiply(int x, int a[], int size) {
-	int carry = 0;
-
-	for (int i = 0; i < size; i++) {
-		int p = a[i] * x + carry;
-		a[i] = p % 10;
-		carry = p / 10;
-	}
-	while (carry) {
-		a[size] = carry % 10;
-		carry = carry / 10;
-		size++;
-	}
-	return size;
-}
-//FUNCTION THAT TAKE INPUT AND RETURN THE FACTORIAL
-void factorialByArray(int n) {
-	int a[500];
-
-	a[0] = 1;
-	int size = 1;
-
-	for (int x = 2; x <= n; x++) {
-		size = multiply(x, a, size);
-	}
-	std::cout << "Function 2: Factorial of " << n << " equals: ";
-	for (int i = size - 1; i >= 0; i--) {
-		std::cout << a[i];
-	}
-}
-
-
 int main() {
-	int n = 2;
+	int n;
 	long long int t;
 
 	std::cout << "*** TASK 2 ***\n\n";
@@ -68,9 +33,6 @@ int main() {
 
 	//CALCULATE FACTORIAL OF n USING LONG LONG INT TYPE
 	factorialByLong(n);
-
-	//CALCULATE FACTORIAL OF n USING ARRAY
-	factorialByArray(n);
 
 	return 0;
 }
