@@ -13,7 +13,7 @@ int input(int& n) {
 
 //FUNCTION THAT CALCULATE FACTORIAL OF A NUMBER USING LONG LONG INT
 void factorialByLong(int n) {
-	long long int t=1;
+	long long int t = 1;
 	for (int i = 1; i <= n; i++) {
 		t = t * i;
 	}
@@ -22,10 +22,9 @@ void factorialByLong(int n) {
 
 int main() {
 	int n;
-	long long int t;
 
 	std::cout << "*** TASK 2 ***\n\n";
-	
+
 	//ENTER A POSITIVE INTEGER FROM KEYBOARD
 	input(n);
 
