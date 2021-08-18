@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Task2_Factorial", "..\Task2
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Task3_ObjectOriented", "..\Task3_ObjectOriented\Task3_ObjectOriented.vcxproj", "{7384415A-B1B8-4A56-AACF-5C54B57B3039}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Task4_StatePattern", "..\Task4_StatePattern\Task4_StatePattern.vcxproj", "{2C16D505-6F80-4689-AB8E-2A12C050045F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{7384415A-B1B8-4A56-AACF-5C54B57B3039}.Release|x64.Build.0 = Release|x64
 		{7384415A-B1B8-4A56-AACF-5C54B57B3039}.Release|x86.ActiveCfg = Release|Win32
 		{7384415A-B1B8-4A56-AACF-5C54B57B3039}.Release|x86.Build.0 = Release|Win32
+		{2C16D505-6F80-4689-AB8E-2A12C050045F}.Debug|x64.ActiveCfg = Debug|x64
+		{2C16D505-6F80-4689-AB8E-2A12C050045F}.Debug|x64.Build.0 = Debug|x64
+		{2C16D505-6F80-4689-AB8E-2A12C050045F}.Debug|x86.ActiveCfg = Debug|Win32
+		{2C16D505-6F80-4689-AB8E-2A12C050045F}.Debug|x86.Build.0 = Debug|Win32
+		{2C16D505-6F80-4689-AB8E-2A12C050045F}.Release|x64.ActiveCfg = Release|x64
+		{2C16D505-6F80-4689-AB8E-2A12C050045F}.Release|x64.Build.0 = Release|x64
+		{2C16D505-6F80-4689-AB8E-2A12C050045F}.Release|x86.ActiveCfg = Release|Win32
+		{2C16D505-6F80-4689-AB8E-2A12C050045F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
