@@ -86,14 +86,14 @@ public:
 // KEY define 
 #ifdef WIN32
 
-#define KEY_BACK			VK_ESCAPE
-#define KEY_LEFT			VK_LEFT
-#define KEY_RIGHT			VK_RIGHT
-#define KEY_UP				VK_UP
-#define KEY_DOWN			VK_DOWN
-#define KEY_MOVE_LEFT		'A'
-#define KEY_MOVE_RIGHT		'D'
-#define KEY_MOVE_FORWORD	'W'
-#define KEY_MOVE_BACKWORD	'S'
+#define KEY_ATTACK			1
+#define KEY_JUMP			1 << 1
+#define KEY_ROLL			1 << 2
+#define KEY_RUN				1 << 3
+#define KEY_PAUSE			1 << 4
+#define KEY_MOVE_LEFT		1 << 5
+#define KEY_MOVE_RIGHT		1 << 6
+#define KEY_MOVE_FORWARD	1 << 7
+#define KEY_MOVE_BACKWARD	1 << 8
 
 #endif

@@ -15,7 +15,7 @@ GSCredit::~GSCredit()
 void GSCredit::Init()
 {
 	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
-	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_credit.tga");
+	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_main_menu1.tga");
 
 	// background
 	auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
@@ -32,15 +32,16 @@ void GSCredit::Init()
 		GameStateMachine::GetInstance()->PopState();
 		});
 	m_listButton.push_back(button);
+
 	// credit text
 	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
 	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("Caesar.otf");
-	m_textGameName = std::make_shared<Text>(shader, font, "HIGH MEDIEVAL", Vector4(0.0f, 1.0f, 0.0f, 1.0f), 2.0f);
-	m_textGameName->Set2DPosition(Vector2(80, 250));
-	m_textCredit = std::make_shared<Text>(shader,font,"aurthor: TRAN NGOC LONG",Vector4(0.0f, 1.0f, 0.0f, 1.0f), 1.0f);
-	m_textCredit->Set2DPosition(Vector2(100, 280));
-	m_textDescription = std::make_shared<Text>(shader, font, "a 2D high-fantasy-insprired platform game", Vector4(0.0f, 1.0f, 0.0f, 1.0f), 1.0f);
-	m_textDescription->Set2DPosition(Vector2(10, 310));
+	m_textGameName = std::make_shared<Text>(shader, font, "VIKING'S RAID", Vector4(0.0f, 0.0f, 0.0f, 1.0f), 2.0f);
+	m_textGameName->Set2DPosition(Vector2(Globals::screenWidth/2.5, 250));
+	m_textCredit = std::make_shared<Text>(shader,font,"aurthor: TRAN NGOC LONG",Vector4(0.0f, 0.0f, 0.0f, 1.0f), 1.0f);
+	m_textCredit->Set2DPosition(Vector2(Globals::screenWidth / 2.5, 280));
+	m_textDescription = std::make_shared<Text>(shader, font, "a 2D vikings-insprired platform game", Vector4(0.0f, 0.0f, 0.0f, 1.0f), 1.0f);
+	m_textDescription->Set2DPosition(Vector2(Globals::screenWidth / 2.5, 310));
 	
 }
 

@@ -16,7 +16,7 @@ GSMenu::~GSMenu()
 void GSMenu::Init()
 {
 	auto model = ResourceManagers::GetInstance()->GetModel("Sprite2D.nfg");
-	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_main_menu.tga");
+	auto texture = ResourceManagers::GetInstance()->GetTexture("bg_main_menu1.tga");
 
 	// background
 	auto shader = ResourceManagers::GetInstance()->GetShader("TextureShader");
@@ -45,7 +45,7 @@ void GSMenu::Init()
 	m_listButton.push_back(button);
 
 	// exit button
-	texture = ResourceManagers::GetInstance()->GetTexture("btn_close.tga");
+	texture = ResourceManagers::GetInstance()->GetTexture("btn_back.tga");
 	button = std::make_shared<GameButton>(model, shader, texture);
 	button->Set2DPosition(Globals::screenWidth - 50, 50);
 	button->SetSize(50, 50);
@@ -57,8 +57,8 @@ void GSMenu::Init()
 	// game title
 	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
 	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("Caesar.otf");
-	m_textGameName = std::make_shared<Text>(shader, font, "HIGH MEDIEVAL", Vector4(0.0f, 1.0f, 0.0f, 1.0f), 3.0f);
-	m_textGameName->Set2DPosition(Vector2(0, 250));
+	m_textGameName = std::make_shared<Text>(shader, font, "VIKING'S RAID", Vector4(0.0f, 0.0f, 0.0f, 1.0f), 3.0f);
+	m_textGameName->Set2DPosition(Vector2(Globals::screenWidth/3, 250));
 }
 
 void GSMenu::Exit()

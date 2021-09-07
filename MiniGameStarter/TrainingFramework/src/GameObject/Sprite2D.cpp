@@ -107,7 +107,7 @@ void Sprite2D::Set2DPosition(GLint x, GLint y)
 	CalculateWorldMatrix();
 }
 
-void Sprite2D::Set2DPosition(Vector2 position)
+void Sprite2D::Set2DPosition1(Vector2 position)
 {
 	m_position = Vector3(position.x, position.y, 0.0f);
 	CalculateWorldMatrix();
