@@ -26,4 +26,5 @@ private:
 	std::shared_ptr<Text>					m_textGameName;
 	std::shared_ptr<Text>					m_textCredit;
 	std::shared_ptr<Text>					m_textDescription;
+	std::vector<std::shared_ptr<Text>>		m_listText;
 };

@@ -12,6 +12,9 @@ AnimationSprite::AnimationSprite(std::shared_ptr<Model> model, std::shared_ptr<S
 }
 void AnimationSprite::Init()
 {
+	velo.x = 0.0f;
+	velo.y = 0.0f;
+	original.x = this->GetPosition().x;
 	SetCamera(Application::GetInstance()->GetCamera());
 	CalculateWorldMatrix();
 }
@@ -103,32 +106,54 @@ void AnimationSprite::Update(GLfloat deltatime)
 	}
 
 }
+void AnimationSprite::UpdateFlip(GLfloat deltatime)
+{
+	//Animation
+	m_currentFrame = m_numFrames;
+	m_currentframeTime += deltatime;
+	if (m_currentframeTime >= m_frameTime) {
+		m_currentFrame--;
+		if (m_currentFrame <= 0) {
+			m_currentFrame = m_numFrames;
+		}
+		m_currentframeTime -= m_frameTime;
+	}
 
-void AnimationSprite::move(GLfloat vx, GLfloat vy) {
-	velo.x = vx * m_movementspeed;
-	velo.y = vy * m_movementspeed;
-	this->m_position.operator+=(velo);
+}
+void AnimationSprite::UpdateEnemy(GLfloat deltaTime) {
+	
+}
+
+void AnimationSprite::move(GLfloat vx, GLfloat vy,GLfloat deltaTime) {
+	velo.x = vx * (m_movementspeed) * deltaTime;
+	this->m_position.x += (velo.x);
+	
+}
+
+void AnimationSprite::enemyPatrol(GLfloat deltaTime) {
+	velo.x = 1.0f * (m_movementspeed)*deltaTime;
+	if (s <= 10.0f) {
+		this->m_position.x += velo.x;
+	}
+	if (50.0f >= s >= 10.0f) {
+		this->m_position.x -= velo.x;
+	}
+	if (s >= 50.0f) {
+		s = 0.0f;
+	}
+}
+
+
+void AnimationSprite::jump(GLfloat deltaTime, GLfloat gravity, GLfloat jumpHeight) {
+	velo.y = -(2.0f * gravity * jumpHeight * deltaTime);
+	this->m_position.y += velo.y;
+}
+
+void AnimationSprite::updatePhysics(GLfloat gravity, GLfloat deltaTime) {
+	velo.y = 1.0f * gravity * deltaTime;
+	this->m_position.y += velo.y;
 	CalculateWorldMatrix();
 }
 
-void AnimationSprite::jump(GLfloat vx, GLfloat vy,GLfloat deltaTime, GLfloat jumpSpeedX, GLfloat jumpSpeedY) {
-	velo.x = vx * jumpSpeedX * deltaTime;
-	velo.y = vy * jumpSpeedY * deltaTime;
-	this->m_position.operator+=(velo);
-	CalculateWorldMatrix();
-}
 
-void AnimationSprite::updatePhysics(GLfloat gravity) {
-	velo.x = 0;
-	velo.y = 1.0f * gravity;
-	if (this->m_position.y <= Globals::screenHeight - 250) {
-		this->m_position.operator+=(velo);
-		CalculateWorldMatrix();
-	}
-	else {
-		velo.y = 0;
-		this->m_position.operator+=(velo);
-		CalculateWorldMatrix();
-	}
-}
 

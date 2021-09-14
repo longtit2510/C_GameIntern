@@ -11,9 +11,18 @@ public:
     void		Init() override;
     void		Draw() override; 
     void		Update(GLfloat deltatime) override;
-    void        move(GLfloat vx, GLfloat vy);
-    void        updatePhysics(GLfloat gravity);
-    void        jump(GLfloat vx, GLfloat vy,GLfloat deltaTime,GLfloat jumpSpeedX,GLfloat jumpSpeedY);
+
+    void        UpdateFlip(GLfloat deltaTime);
+    void        UpdateEnemy(GLfloat deltaTime);
+    void        setCurrentFrame(int a) {
+        this->m_currentFrame = a;
+    };
+
+    void        move(GLfloat vx, GLfloat vy,GLfloat deltaTime);
+    void        updatePhysics(GLfloat gravity,GLfloat deltaTime);
+    void        jump(GLfloat deltaTime,GLfloat gravity,GLfloat jumpHeight);
+
+    void        enemyPatrol(GLfloat deltaTime);
 
 protected:
     int m_numFrames;
@@ -21,8 +30,11 @@ protected:
     float m_frameTime;
     float m_currentframeTime;
 
-    float m_movementspeed = 3.0f;
+    float m_movementspeed = 100.0f;
+    GLfloat s = 0.0f;
 
     Vector3 velo;
+    Vector3 dire;
+    Vector3 original;
 };
 

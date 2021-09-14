@@ -57,7 +57,7 @@ void GSMenu::Init()
 	// game title
 	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
 	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("Caesar.otf");
-	m_textGameName = std::make_shared<Text>(shader, font, "VIKING'S RAID", Vector4(0.0f, 0.0f, 0.0f, 1.0f), 3.0f);
+	m_textGameName = std::make_shared<Text>(shader, font, "M-ADVENTURE", Vector4(0.0f, 0.0f, 0.0f, 1.0f), 3.0f);
 	m_textGameName->Set2DPosition(Vector2(Globals::screenWidth/3, 250));
 }
 

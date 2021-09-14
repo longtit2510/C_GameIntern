@@ -1,8 +1,11 @@
 #include "GameButton.h"
+#include "Application.h"
 
 GameButton::GameButton(std::shared_ptr<Model> model, std::shared_ptr<Shader> shader, std::shared_ptr<Texture> texture)
 	: Sprite2D(-1, model, shader, texture), m_pBtClick(nullptr), m_isHolding(false)
 {
+	SetCamera(Application::GetInstance()->GetCamera());
+	CalculateWorldMatrix();
 }
 
 GameButton::~GameButton()

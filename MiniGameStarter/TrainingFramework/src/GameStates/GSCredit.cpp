@@ -36,12 +36,22 @@ void GSCredit::Init()
 	// credit text
 	shader = ResourceManagers::GetInstance()->GetShader("TextShader");
 	std::shared_ptr<Font> font = ResourceManagers::GetInstance()->GetFont("Caesar.otf");
-	m_textGameName = std::make_shared<Text>(shader, font, "VIKING'S RAID", Vector4(0.0f, 0.0f, 0.0f, 1.0f), 2.0f);
+	m_textGameName = std::make_shared<Text>(shader, font, "M-ADVENTURE", Vector4(0.0f, 0.0f, 0.0f, 1.0f), 2.0f);
 	m_textGameName->Set2DPosition(Vector2(Globals::screenWidth/2.5, 250));
 	m_textCredit = std::make_shared<Text>(shader,font,"aurthor: TRAN NGOC LONG",Vector4(0.0f, 0.0f, 0.0f, 1.0f), 1.0f);
 	m_textCredit->Set2DPosition(Vector2(Globals::screenWidth / 2.5, 280));
-	m_textDescription = std::make_shared<Text>(shader, font, "a 2D vikings-insprired platform game", Vector4(0.0f, 0.0f, 0.0f, 1.0f), 1.0f);
+	m_textDescription = std::make_shared<Text>(shader, font, "a 2D medieval-insprired platform game", Vector4(0.0f, 0.0f, 0.0f, 1.0f), 1.0f);
 	m_textDescription->Set2DPosition(Vector2(Globals::screenWidth / 2.5, 310));
+	m_listText.push_back(m_textDescription);
+	m_textDescription = std::make_shared<Text>(shader, font, "press A or D to move left or right", Vector4(0.0f, 0.0f, 0.0f, 1.0f), 1.0f);
+	m_textDescription->Set2DPosition(Vector2(Globals::screenWidth / 2.5, 340));
+	m_listText.push_back(m_textDescription);
+	m_textDescription = std::make_shared<Text>(shader, font, "press K for JUMP", Vector4(0.0f, 0.0f, 0.0f, 1.0f), 1.0f);
+	m_textDescription->Set2DPosition(Vector2(Globals::screenWidth / 2.5, 370));
+	m_listText.push_back(m_textDescription);
+	m_textDescription = std::make_shared<Text>(shader, font, "press L for ROLL and J for ATTACK", Vector4(0.0f, 0.0f, 0.0f, 1.0f), 1.0f);
+	m_textDescription->Set2DPosition(Vector2(Globals::screenWidth / 2.5, 400));
+	m_listText.push_back(m_textDescription);
 	
 }
 
@@ -99,5 +109,7 @@ void GSCredit::Draw()
 	}
 	m_textGameName->Draw();
 	m_textCredit->Draw();
-	m_textDescription->Draw();
+	for (auto it : m_listText) {
+		it->Draw();
+	}
 }

@@ -147,6 +147,7 @@ Vector3& Vector3::operator -= (Vector3 vector)
 Vector3 Vector3::operator * (GLfloat k)
 {
 	return Vector3(x * k, y * k, z * k);
+
 }
 
 Vector3& Vector3::operator *= (GLfloat k)
